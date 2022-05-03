@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-//FALTA [14;z|19]
+//FALTA [14;19]
 void ejercicio1();
 void ejercicio2();
 void ejercicio3();
@@ -35,6 +35,7 @@ int busquedaPalabra(char palabras[15][25],int cantidad,char busqueda[1][25]);   
 void ordenSeleccion(char palabras[15][25],int cantidad);                                                        //(11)
 int posicionMenor(char palabras[15][25],int a,int cantidad);                                                    //(12)
 int determinanteMatriz2X2(int f,int c,int matriz[f][c]);                                                        //(13)
+void multiplicacionMatrices(int f,int c,int matriz1[f][c],int g,int d,int matriz2[g][d],int resultado[f][d]);   //(14)
 int main()
 {
     int ejercicio;
@@ -243,9 +244,9 @@ float promedioMatriz(int f,int c,int matriz[f][c])                              
 int busquedaElemento(int f,int c,int matriz[f][c],int busqueda)                                                 //INICIO FUNCION BUSQUEDAELEMENTO           (7)
 {
     int a,b,flag=0;
-    for(a=0;a<f;a++)
+    for(a=0;a<f && flag==0;a++)
     {
-        for(b=0;b<c;b++)
+        for(b=0;b<c && flag==0;b++)
         {
             if(matriz[a][b]==busqueda)
             {
