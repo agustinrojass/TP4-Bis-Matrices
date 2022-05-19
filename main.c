@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-//FALTA [14;19]
+//FALTA [15;19]
 void ejercicio1();
 void ejercicio2();
 void ejercicio3();
@@ -172,7 +172,7 @@ int main()
     }
     while(ejercicio!=0);
     printf("\nTP4 BIS TERMINADO\n");
-    printf("\nVersion 1.1\n");
+    printf("\nVersion 1.2\n");
     return 0;
 }
 void tamanoMatriz(int *f,int *c)                                                                                //INICIO FUNCION TAMANOMATRIZ               (1)
@@ -298,7 +298,7 @@ void ordenSeleccion(char palabras[15][25],int cantidad)                         
 {
     int a=0,posicion;
     char aux[1][25];
-    while (a<cantidad-1)
+    while(a<cantidad-1)
     {
         posicion=posicionMenor(palabras,a,cantidad);                                                            //FUNCION POSICIONMENOR
         strcpy(aux[0],palabras[posicion]);
@@ -313,7 +313,7 @@ int posicionMenor(char palabras[15][25],int a,int cantidad)                     
     int i=a+1;
     char menor[1][25];
     strcpy(menor[0],palabras[a]);
-    while (i<cantidad)
+    while(i<cantidad)
     {
         if(strcmp(menor[0],palabras[i])==1)
         {
@@ -463,6 +463,30 @@ void ejercicio9()
 }
 void ejercicio10()
 {
+    //Hacer una función que determine si una palabra se encuentra dentro de un arreglo de palabras ordenado alfabéticamente.
+    //La función recibe el arreglo, la cantidad de palabras que contiene y la palabra a buscar.
+    int cantidad,flag;
+    char palabras[15][25],busqueda[1][25];
+    cantidad=cargaMatrizPalabras(palabras);                                                                     //FUNCION CARGAMATRIZPALABRAS
+    muestraPalabras(palabras,cantidad);                                                                         //FUNCION MUESTRAPALABRAS
+    ordenSeleccion(palabras,cantidad);
+    printf("\nPalabras Ordenadas\n");
+    muestraPalabras(palabras,cantidad);                                                                         //FUNCION MUESTRAPALABRAS
+    printf("\nIngrese la palabra que desea buscar: ");
+    fflush(stdin);
+    gets(busqueda[0]);
+    flag=busquedaPalabra(palabras,cantidad,busqueda);                                                           //FUNCION BUSQUEDAELEMENTOS
+    if(flag==1)
+    {
+        printf("\nLa palabra \"%s\" esta en la lista de palabras.\n\n",busqueda[0]);
+    }
+    else
+    {
+        printf("\nLa palabra \"%s\" no esta en la lista de palabras.\n\n",busqueda[0]);
+    }
+}
+void ejercicio11()
+{
     //Hacer una función (o varias) que ordene un arreglo de palabras por orden alfabético.
     //(Por selección o inserción, el que más te guste).
     int cantidad;
@@ -474,7 +498,7 @@ void ejercicio10()
     muestraPalabras(palabras,cantidad);                                                                         //FUNCION MUESTRAPALABRAS
     printf("\n");
 }
-void ejercicio11()
+void ejercicio12()
 {
     //Hacer una función que retorne el determinante de una matriz de 2x2.
     int f=2,c=2,determinante;
@@ -484,7 +508,7 @@ void ejercicio11()
     determinante=determinanteMatriz2X2(f,c,matriz);                                                             //FUNCION DETERMINANTEMATRIZ2X2
     printf("El determinante de la matriz es %i\n\n",determinante);
 }
-void ejercicio12()
+void ejercicio13()
 {
     //Función que verifique si una matriz de 2x2 tiene inversa.
     int f=2,c=2,determinante;
@@ -501,7 +525,7 @@ void ejercicio12()
         printf("La matriz no tiene inversa.\n\n");
     }
 }
-void ejercicio13()
+void ejercicio14()
 {
     //Hacer una función que multiplique una matriz de 2x2 por una matriz de 2x5.
     int f=2,c=2,g=2,d=5;
@@ -516,11 +540,11 @@ void ejercicio13()
     printf("La matriz resultante 2X5 es:\n");
     muestraMatrizInt(f,d,resultado);                                                                            //FUNCION MUESTRAMATRIZ
 }
-void ejercicio14()
+void ejercicio15()
 {
     //Hacer una función que calcule la matriz inversa de una matriz de 2x2.
 }
-void ejercicio15()
+void ejercicio16()
 {
     //Los resultados de las últimas elecciones a Intendente en el pueblo “La Matrix” han sido los siguientes:
     //Distrito Candidato A Candidato B Candidato C Candidato D
@@ -535,21 +559,16 @@ void ejercicio15()
     //c. Si algún candidato recibe más del 50% de los votos, el programa imprimirá un mensaje declarándose ganador.
     //d. Si algún candidato recibe menos del 50% de los votos, el programa debe imprimir el nombre de los dos candidatos más votados que serán los que pasen a la segunda ronda de las elecciones.
 }
-void ejercicio16()
+void ejercicio17()
 {
     //Hacer una función que verifique si una matriz cuadrada es simétrica.
     //(A[i][j] == A[j][i])
 }
-void ejercicio17()
+void ejercicio18()
 {
     //Hacer una función que genere la matriz identidad.
 }
-void ejercicio18()
-{
-    //Hacer una función que calcule la matriz traspuesta.
-}
 void ejercicio19()
 {
-    //Hacer una función que determine si una palabra se encuentra dentro de un arreglo de palabras ordenado alfabéticamente.
-    //La función recibe el arreglo, la cantidad de palabras que contiene y la palabra a buscar.
+    //Hacer una función que calcule la matriz traspuesta.
 }
