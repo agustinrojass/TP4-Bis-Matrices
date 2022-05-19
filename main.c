@@ -172,7 +172,7 @@ int main()
     }
     while(ejercicio!=0);
     printf("\nTP4 BIS TERMINADO\n");
-    printf("\nVersion 1.2\n");
+    printf("\nVersion 1.3\n");
     return 0;
 }
 void tamanoMatriz(int *f,int *c)                                                                                //INICIO FUNCION TAMANOMATRIZ               (1)
@@ -283,16 +283,15 @@ void muestraPalabras(char palabras[15][25],int cantidad)                        
 }                                                                                                               //FIN FUNCION MUESTRAPALABRAS
 int busquedaPalabra(char palabras[15][25],int cantidad,char busqueda[1][25])                                    //INICIO FUNCION BUSQUEDAELEMENTO           (10)
 {
-    int a=0,flag=0;
-    while(a<cantidad && flag==0)
+    int a,fila=-1;
+    for(a=0;a<cantidad && fila==-1;a++)
     {
         if(strcmp(palabras[a],busqueda[0])==0)
         {
-            flag=1;
+            fila=a+1;
         }
-        a++;
     }
-    return flag;
+    return fila;
 }                                                                                                               //FIN FUNCION BUSQUEDAELEMENTO
 void ordenSeleccion(char palabras[15][25],int cantidad)                                                         //INICIO FUNCION ORDENSELLECION             (11)
 {
@@ -444,17 +443,17 @@ void ejercicio9()
 {
     //Hacer una función que determine si una palabra se encuentra dentro de un arreglo de palabras.
     //La función recibe el arreglo, la cantidad de palabras que contiene y la palabra a buscar.
-    int cantidad,flag;
+    int cantidad,fila;
     char palabras[15][25],busqueda[1][25];
     cantidad=cargaMatrizPalabras(palabras);                                                                     //FUNCION CARGAMATRIZRANDOM
     muestraPalabras(palabras,cantidad);                                                                         //FUNCION MUESTRAPALABRAS
     printf("\nIngrese la palabra que desea buscar: ");
     fflush(stdin);
     gets(busqueda[0]);
-    flag=busquedaPalabra(palabras,cantidad,busqueda);                                                           //FUNCION BUSQUEDAELEMENTOS
-    if(flag==1)
+    fila=busquedaPalabra(palabras,cantidad,busqueda);                                                           //FUNCION BUSQUEDAELEMENTOS
+    if(fila!=-1)
     {
-        printf("\nLa palabra \"%s\" esta en la lista de palabras.\n\n",busqueda[0]);
+        printf("\nLa palabra \"%s\" esta en la lista de palabras en la fila %i.\n\n",busqueda[0],fila);
     }
     else
     {
@@ -465,7 +464,7 @@ void ejercicio10()
 {
     //Hacer una función que determine si una palabra se encuentra dentro de un arreglo de palabras ordenado alfabéticamente.
     //La función recibe el arreglo, la cantidad de palabras que contiene y la palabra a buscar.
-    int cantidad,flag;
+    int cantidad,fila;
     char palabras[15][25],busqueda[1][25];
     cantidad=cargaMatrizPalabras(palabras);                                                                     //FUNCION CARGAMATRIZPALABRAS
     muestraPalabras(palabras,cantidad);                                                                         //FUNCION MUESTRAPALABRAS
@@ -475,10 +474,10 @@ void ejercicio10()
     printf("\nIngrese la palabra que desea buscar: ");
     fflush(stdin);
     gets(busqueda[0]);
-    flag=busquedaPalabra(palabras,cantidad,busqueda);                                                           //FUNCION BUSQUEDAELEMENTOS
-    if(flag==1)
+    fila=busquedaPalabra(palabras,cantidad,busqueda);                                                           //FUNCION BUSQUEDAELEMENTOS
+    if(fila!=-1)
     {
-        printf("\nLa palabra \"%s\" esta en la lista de palabras.\n\n",busqueda[0]);
+        printf("\nLa palabra \"%s\" esta en la lista de palabras en la fila %i.\n\n",busqueda[0],fila);
     }
     else
     {
